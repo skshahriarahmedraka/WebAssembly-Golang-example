@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>my wasm</title>
+    <link rel="icon" type="image/ico" href="favicon.ico" />
+    <script src="wasm_exec.js"> </script>
+    <script >
+    const go =new Go()
+    WebAssembly.instantiateStreaming(
+        fetch("main.wasm"), 
+        go.importObject
+    ).then(result=>go.run(result.instance)) 
+    // OR
+
+    // const go =new Go()
+    // const result = await WebAssembly.importStreaming(
+    //     fetch("main.wasm"),
+    //     go.importObject
+    // )
+    // go.run(result.instance)
+    // init()
+    
+    </script>
+
+</head>
+<body>
+    
+</body>
+</html>
